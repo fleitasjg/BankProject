@@ -22,4 +22,9 @@ public class Bank {
         this.currentAccount = currentAccount;
         this.debitsCard = debitsCard;
     }
+
+    public Bank() {
+
+    }
+
 }

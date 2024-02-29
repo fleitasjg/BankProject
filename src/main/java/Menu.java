@@ -4,6 +4,7 @@ public class Menu {
 
     public static void action(int option) {
         Scanner entrada = new Scanner(System.in);
+        Administrator administrator = new Administrator();
         int optionMenu;
         double amount, remove;
 
@@ -13,6 +14,16 @@ public class Menu {
                 System.out.println("1.- Cuenta de Ahorro");
                 System.out.println("2.- Cuenta Corriente");
                 optionMenu = entrada.nextInt();
+                if(optionMenu != 1 && optionMenu != 2) {
+                    System.out.println("Error, opcion no existe");
+                }else
+                    if(optionMenu == 1) {
+                        administrator.registerCustomers();
+                        administrator.createSavingsAccount();
+                    } else{
+                        administrator.registerCustomers();
+                        administrator.createCurrentAccount();
+                    }
 
                 break;
             case 2:

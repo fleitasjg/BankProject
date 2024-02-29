@@ -2,22 +2,19 @@ import java.util.*;
 
 public class Administrator extends People implements IOperationAdministrator {
     // Constructor
-    // Este es un comentario
-    public Administrator(String bankName, String address, String contact,
-                         ArrayList<Customer> clients, ArrayList<Loan> loans,
-                         ArrayList<SavingsAccount> savingsAccount, ArrayList<CurrentAccount> currentsAccount,
-                         ArrayList<DebitCard> debitsCard,
-                         String name, String lastName, String ID, String address1, String contact1) {
-        super(bankName, address, contact, clients, loans, savingsAccount, currentsAccount, debitsCard, name, lastName, ID, address1, contact1);
+
+
+    public Administrator() {
+        super();
     }
 
-    public void performAdministratorOperation() {
-        // Implementa la lógica específica para operaciones de administrador
-        System.out.println("Performing administrator operation");
+    public Administrator(String name, String lastName, String ID, String address, String contact) {
+        super(name, lastName, ID, address, contact);
     }
 
     @Override
     public void registerCustomers() {
+        ArrayList<Customer> clients = new ArrayList<>();
         Scanner entrada = new Scanner(System.in);
         System.out.println("\nIndique su nombre:");
         String name = entrada.nextLine();
@@ -29,7 +26,12 @@ public class Administrator extends People implements IOperationAdministrator {
         String address = entrada.nextLine();
         System.out.println("\nIndique su numero de contacto:");
         String contact = entrada.nextLine();
+        // Create a new Person object
+        Customer cli = new Customer(name,lastName,id,address,contact);
+        clients.add(cli);
+        cli.getList(clients);
     }
+
 
     @Override
     public void removeCustomers() {
